@@ -200,7 +200,8 @@ opacity:.7;
 <script>
 
 const PRICE = 40;
-const WHATSAPP_NUMBER = "919270295839";
+// Default Number set kar diya hai, agar admin se change karenge toh change ho jayega
+let WHATSAPP_NUMBER = localStorage.getItem('whatsapp_number') || "919270295839";
 
 const ticket=document.getElementById("ticket");
 const amount=document.getElementById("amount");
@@ -327,6 +328,9 @@ ${list}
 Total Amount ₹${total}
 
 Please confirm booking`;
+
+// Refresh dynamic number before sending
+WHATSAPP_NUMBER = localStorage.getItem('whatsapp_number') || WHATSAPP_NUMBER;
 
 window.open(
 "https://wa.me/" + WHATSAPP_NUMBER +
